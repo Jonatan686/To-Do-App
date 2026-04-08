@@ -146,7 +146,7 @@
   width: 100%;
   height: 100vh;
 
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 
@@ -220,12 +220,6 @@
 
   <canvas id="chart"></canvas>
 
-</div>
-
-<div class="login-card">
-  <h3>Login</h3>
-  <input ...>
-  <button ...>
 </div>
 
 <script>
@@ -393,12 +387,15 @@ function logout() {
 }
 
 function checkLogin() {
+  const authBox = document.getElementById("authBox");
+  const app = document.querySelector(".app");
+
   if (!currentUser) {
-    document.getElementById("authBox").style.display = "flex";
-    document.querySelector(".app").style.display = "none";
+    authBox.style.display = "flex";
+    app.style.display = "none";
   } else {
-    document.getElementById("authBox").style.display = "none";
-    document.querySelector(".app").style.display = "block";
+    authBox.style.display = "none";  // ⬅️ ini penting
+    app.style.display = "block";
   }
 }
 
